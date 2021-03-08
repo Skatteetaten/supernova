@@ -8,6 +8,7 @@ class SupernovaApplicationTests {
 
 	@Test
 	fun contextLoads() {
+	    assert(true)
 	}
 
 }
