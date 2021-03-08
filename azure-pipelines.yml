@@ -29,7 +29,6 @@ steps:
     jdkVersionOption: '1.11'
 
 - task: Docker@2
-- task: Docker@2
   inputs:
     containerRegistry: 'SandboxSkyklarRegistry'
     repository: 'nebula/supernova'
