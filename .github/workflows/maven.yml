@@ -22,3 +22,17 @@ jobs:
         java-version: 1.11
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build dockerimage
+      run: mvn -B spring-boot:build-image
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v1
+      with:
+         creds: ${{ secrets.AZURE_CREDENTIALS }}   
+    - name: 'push image'
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER }}
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+    - run: |
+       docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova
