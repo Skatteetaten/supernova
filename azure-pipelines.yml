@@ -27,7 +27,6 @@ steps:
     goals: 'spring-boot:build-image'
     publishJUnitResults: false
     jdkVersionOption: '1.11'
-
 - task: Docker@2
   inputs:
     containerRegistry: 'SandboxSkyklarRegistry'
