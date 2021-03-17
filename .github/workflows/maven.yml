@@ -21,7 +21,7 @@ jobs:
     - name : Checkout code
       uses: actions/checkout@v2
     - id: get_version
-        uses: battila7/get-version-action@v2
+      uses: battila7/get-version-action@v2
     - run: echo ${{ steps.get_version.outputs.version }}
     - run: echo ${{ steps.get_version.outputs.version-without-v }}
     - name: Set up JDK 1.11
