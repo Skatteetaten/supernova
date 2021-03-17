@@ -20,12 +20,13 @@ jobs:
     steps:
     - name : Checkout code
       uses: actions/checkout@v2
+    - uses: olegtarasov/get-tag@v2.1
+      id: tagName
       with:
-        fectch-depth: 0
-    - uses: paulhatch/semantic-version@v4.0.1
+        tagRegex: "v(.*)"  # Optional. Returns specified group text as tag name. Full tag string is returned if regex is not defined.
+    - name: Some other step # Output usage example
       with:
-        # The prefix to use to identify tags
-        tag_prefix: "v"
+        tagname: ${{ steps.tagName.outputs.tag }}
     - name: Set up JDK 1.11
       uses: actions/setup-java@v1
       with:
