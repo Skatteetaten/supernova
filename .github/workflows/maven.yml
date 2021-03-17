@@ -3,6 +3,9 @@
 
 name: Supernova github
 
+env:
+    SHA7: ${GITHUB_SHA:7}
+
 on:
   push:
     branches: [ main ]
@@ -35,5 +38,6 @@ jobs:
         username: ${{ secrets.REGISTRY_USERNAME }}
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
-       docker tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${{ github.sha }}
-       docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${{ github.sha }}
+       docker tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${GITHUB_SHA::7}
+       docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${GITHUB_SHA::7}
+
