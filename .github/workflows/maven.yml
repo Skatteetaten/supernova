@@ -9,6 +9,7 @@ env:
 on:
   push:
     branches: [ main ]
+    tags: [ "v*" ]
   pull_request:
     branches: [ main ]
 
@@ -20,10 +21,8 @@ jobs:
     steps:
     - name : Checkout code
       uses: actions/checkout@v2
-    - id: get_version
-      uses: battila7/get-version-action@v2
-    - run: echo ${{ steps.get_version.outputs.version }}
-    - run: echo ${{ steps.get_version.outputs.version-without-v }}
+    - run: echo ${{ github.event.release.tag_name }}
+    - run: echo ${{ github.ref }}
     - name: Set up JDK 1.11
       uses: actions/setup-java@v1
       with:
