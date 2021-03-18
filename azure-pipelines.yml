@@ -32,4 +32,3 @@ steps:
     containerRegistry: 'SandboxSkyklarRegistry'
     repository: 'leveranseplattform/supernova'
     command: 'push'
-    tags: 'latest'
