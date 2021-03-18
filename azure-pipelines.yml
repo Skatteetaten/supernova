@@ -24,7 +24,7 @@ steps:
   displayName: Build Docker image
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'spring-boot:build-image'
+    goals: 'spring-boot:build-image -Dimage.version=$(Build.BuildId)'
     publishJUnitResults: false
     jdkVersionOption: '1.11'
 - task: Docker@2

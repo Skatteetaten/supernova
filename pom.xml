@@ -16,6 +16,7 @@
   <properties>
     <java.version>11</java.version>
     <kotlin.version>1.4.30</kotlin.version>
+    <image.version>latest</image.version>
   </properties>
   <dependencies>
     <dependency>
@@ -78,7 +79,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
           <image>
-            <name>sandboxskyklarregistry.azurecr.io/leveranseplattform/${project.artifactId}</name>
+            <name>sandboxskyklarregistry.azurecr.io/leveranseplattform/${project.artifactId}:${image.version}</name>
           </image>
           <layers>
             <enabled>true</enabled>
