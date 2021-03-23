@@ -19,6 +19,6 @@ fun main(args: Array<String>) {
 class SuperNovaController() {
 
     @GetMapping
-    fun index() = "Hello Nebula DEMO"
+    fun index() = "Hello Nebula DEMO2"
 
 }
