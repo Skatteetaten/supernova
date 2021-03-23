@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+  name: self-hosted-pool
 
 steps:
 - script: echo 'build number $(Build.BuildNumber)' # outputs customized build number like project_def_master_20200828.1
