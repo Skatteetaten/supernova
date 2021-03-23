@@ -14,7 +14,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo 'branch name $(Build.SourceBranchName)'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -29,7 +28,7 @@ steps:
   displayName: Build Docker image
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'spring-boot:build-image -Dimage.version=main-$(Build.BuildId)'
+    goals: 'spring-boot:build-image -Dimage.version=$(Build.SourceBranchName)-$(Build.BuildId)'
     publishJUnitResults: false
     jdkVersionOption: '1.11'
 - task: Docker@2
