@@ -1,6 +1,5 @@
 # Maven
 
-
 name: $(TeamProject)_$(Build.DefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 trigger:
@@ -10,14 +9,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo 'build number $(Build.BuildNumber)' # outputs customized build number like project_def_master_20200828.1
-- script: echo 'branch name $(Build.SourceBranchName)'
-- task: AzureKeyVault@1
-  inputs:
-    azureSubscription: 'sandbox.skyklar(940b8dee-c9e6-46a0-932b-45a432cbf944)'
-    KeyVaultName: 'kv-skyklar-sb'
-    SecretsFilter: '*'
-    RunAsPreJob: false
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
