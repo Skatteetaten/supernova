@@ -13,12 +13,11 @@ fun main(args: Array<String>) {
 	runApplication<SupernovaApplication>(*args)
 }
 
-
 @RestController
 @RequestMapping("/")
 class SuperNovaController() {
 
     @GetMapping
-    fun index() = "Hello Nebula DEV 3"
+    fun index() = "Hello Nebula DEV 5"
 
 }
