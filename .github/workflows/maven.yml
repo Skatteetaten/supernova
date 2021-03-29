@@ -31,9 +31,9 @@ jobs:
         java-version: 1.11
 
     - name: Build with Maven
-      run: mvn -B package --file pom.xml -Dimage.version=${{steps.build_id.outputs.tag}}
+      run: mvn -B package --file pom.xml
     - name: Build dockerimage
-      run: mvn -D skipTests -B spring-boot:build-image
+      run: mvn -D skipTests -B spring-boot:build-image -Dimage.version=${{steps.build_id.outputs.tag}}
     - name: 'Login via Azure CLI'
       uses: azure/login@v1
       with:
@@ -46,4 +46,3 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWORD }}
     - run: |
        docker push ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${{steps.build_id.outputs.tag}}
-#       docker tag ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova ${{ secrets.REGISTRY_LOGIN_SERVER }}/leveranseplattform/supernova:${GITHUB_SHA::7}
