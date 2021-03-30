@@ -6,7 +6,7 @@ name: Supernova github
 
 on:
   push:
-    branches: '**' # note that a branch cannot contain a slash here
+    branches: '**'
 
 jobs:
   build:
