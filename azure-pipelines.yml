@@ -19,7 +19,7 @@ steps:
      sha=${full_sha::8}
      ts=$(date +%s)
      buildId=$(Build.SourceBranchName)-${sha}-${ts}
-     echo "${buildId}"
+     echo "BUILD_ID=${buildId}"
      echo "##vso[task.setvariable variable=BUILD_ID]${buildId}"
 - task: Maven@3
   inputs:
@@ -35,7 +35,7 @@ steps:
   displayName: Build Docker image
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'spring-boot:build-image -Dimage.version=${buildId}"
+    goals: 'spring-boot:build-image -Dimage.version=${BUILD_ID}"
     publishJUnitResults: false
     jdkVersionOption: '1.11'
 - task: Docker@2
@@ -44,4 +44,4 @@ steps:
     containerRegistry: 'SandboxSkyklarRegistry'
     repository: 'leveranseplattform/supernova'
     command: 'push'
-    tags: '${buildId}'
+    tags: '${BUILD_ID}'
