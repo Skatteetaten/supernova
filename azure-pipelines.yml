@@ -15,10 +15,12 @@ pool:
 
 steps:
 - bash: |
-   GITHUB_SHA=$(Build.SourceVersion)
-   sha=${GITHUB_SHA::8}
-   ts=$(date +%s)
-   echo "##vso[task.setvariable variable=BUILD_ID]$(Build.SourceBranchName)-${sha}-${ts}"
+     full_sha=$(Build.SourceVersion)
+     sha=${full_sha::8}
+     ts=$(date +%s)
+     buildId=$(Build.SourceBranchName)-${sha}-${ts}
+     echo "${buildId}"
+     echo "##vso[task.setvariable variable=BUILD_ID]${buildId}"
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
