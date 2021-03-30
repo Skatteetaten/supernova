@@ -35,7 +35,7 @@ steps:
   displayName: Build Docker image
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'spring-boot:build-image -Dimage.version=$(Build.SourceBranchName)-$(Build.BuildId)'
+    goals: 'spring-boot:build-image -Dimage.version=${buildId}"
     publishJUnitResults: false
     jdkVersionOption: '1.11'
 - task: Docker@2
@@ -44,4 +44,4 @@ steps:
     containerRegistry: 'SandboxSkyklarRegistry'
     repository: 'leveranseplattform/supernova'
     command: 'push'
-    tags: '$(Build.SourceBranchName)-$(Build.BuildId)'
+    tags: '${buildId}'
