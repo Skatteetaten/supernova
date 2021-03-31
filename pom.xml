@@ -18,6 +18,8 @@
     <kotlin.version>1.4.30</kotlin.version>
     <image.version>latest</image.version>
     <testcontainers.version>1.15.2</testcontainers.version>
+    <azure-storage-blob.version>12.10.2</azure-storage-blob.version>
+
   </properties>
   <dependencies>
     <dependency>
@@ -43,6 +45,11 @@
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
       <artifactId>kotlin-stdlib-jdk8</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.azure</groupId>
+      <artifactId>azure-storage-blob</artifactId>
+      <version>${azure-storage-blob.version}</version>
     </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
