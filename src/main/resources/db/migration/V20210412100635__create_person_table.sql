@@ -4,6 +4,3 @@ create table person (
                                 primary key,
                         name varchar(255) not null
 );
-
-alter table person owner to postgres;
-
