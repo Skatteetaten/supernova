@@ -4,11 +4,6 @@ spring:
         url: "jdbc:postgresql://localhost:5432/postgres"
         username: "postgres"
         password: "mysecretpassword"
-    jpa:
-        hibernate:
-            ddl-auto: validate
-            #ddl-auto: create-drop # use this for dev if you need to
-
     flyway:
         out-of-order: true
 azure:
