@@ -2,11 +2,14 @@
 
 A reference application for Nebula. 
 
-made with start.spring.io with maven/kotlin/jar chosse spring-web and spring-actualty
+ - https://github.com/lectra-tech/azurite-testcontainers was used to set up BlobStorage
 
+## Develop locally
+`docker-compose up` to start postgres and blob storage locally
+Start the applicaion in your IDE or in terminal
 
 ## Build docker image
-`mvn spring-boot:build-image` -Dversion=main-<buildNumber>
+`mvn spring-boot:build-image -Dversion=new-version`
 
 ## Pipeline
 
@@ -16,3 +19,4 @@ Currently azure-pipeline is used with a really simple workflow
  - build a docker image with main-<BuildId>
  - push the image to docker registry
 
+Github actions are also supported with the same functionality as azure pipeline
